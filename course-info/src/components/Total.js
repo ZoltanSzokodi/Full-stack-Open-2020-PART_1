@@ -1,8 +1,10 @@
 import React from 'react';
 
-const Total = props => {
-  const { exercises1, exercises2, exercises3 } = props;
-  return <p>Number of exercises {exercises1 + exercises2 + exercises3}</p>;
+const Total = ({ course: { parts } }) => {
+  let numOfExercises = 0;
+  parts.map(part => (numOfExercises += part.exercises));
+
+  return <p>Number of exercises {numOfExercises}</p>;
 };
 
 export default Total;
